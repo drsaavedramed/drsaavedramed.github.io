@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Esduardo Saavedra – Consulta médica virtual</title>
+<meta name="description" content="Consulta médica virtual por videollamada con el Dr. Esduardo Saavedra Custodio, Médico Cirujano, CMP 096742. Reserva tu cita en línea.">
+<meta property="og:title" content="Dr. Esduardo Saavedra – Consulta médica virtual">
+<meta property="og:description" content="Reserva tu consulta médica por videollamada. Médico Cirujano · CMP 096742.">
+<meta property="og:image" content="https://drsaavedramed.github.io/foto.jpg">
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F5F8FD;font-family:Inter,system-ui,sans-serif;color:#12224A;min-height:100vh;display:flex;flex-direction:column}
+h1,h2{font-family:'Plus Jakarta Sans',Inter,sans-serif;margin:0;color:#0E1F4D}
+button{font-family:inherit;cursor:pointer}button:disabled{cursor:not-allowed}
+input,textarea{font-family:inherit}
+.wrap{max-width:1200px;width:100%;margin:0 auto;padding:0 28px}
+.top{background:#fff;border-bottom:1px solid #E3E9F3}
+.topin{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 28px;max-width:1200px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;color:#0E1F4D;text-align:left}
+.logo{width:40px;height:40px;border-radius:12px;background:#1F4FBF;display:flex;align-items:center;justify-content:center}
+.btn{height:50px;padding:0 26px;border:0;border-radius:14px;background:#1F4FBF;color:#fff;font-size:16px;font-weight:700}
+.btn:disabled{background:#9AA9C7}
+.btn.sm{height:44px;padding:0 18px;font-size:15px;border-radius:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #D5DEEE;border-radius:10px;padding:8px 12px;font-size:14px;font-weight:600;color:#2B3A5C}
+.hero{display:flex;flex-wrap:wrap;gap:44px;align-items:center;padding:44px 0 28px}
+.hero .txt{flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.hero .pic{flex:1 1 320px;max-width:440px;border-radius:28px;overflow:hidden;background:#DCE6F7;aspect-ratio:4/5}
+.hero .pic img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;padding:8px 0 40px}
+.card{background:#fff;border:1px solid #E3E9F3;border-radius:20px;padding:22px}
+.it{margin-bottom:12px}.it b{display:block;font-size:15px;font-weight:600}.it span{font-size:14px;color:#4A5878}
+.num{width:28px;height:28px;border-radius:999px;background:#1F4FBF;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flow{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start;padding:30px 0}
+.side{flex:1 1 290px;max-width:370px;min-width:0}
+.step{flex:999 1 540px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.kv{display:flex;justify-content:space-between;font-size:14px;margin:8px 0}.kv span{color:#4A5878}
+.bar{display:flex;gap:4px;margin-top:14px}.bar div{flex:1;height:5px;border-radius:5px;background:#DCE3EF}.bar div.on{background:#1F4FBF}
+.ic{width:44px;height:44px;border-radius:12px;border:1px solid #D5DEEE;background:#fff;display:flex;align-items:center;justify-content:center}
+.ic:disabled{opacity:.4}
+.days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.day{height:84px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:1px solid #C9D4E6;background:#fff;color:#12224A;padding:0}
+.day b{font-size:21px;font-family:'Plus Jakarta Sans'}.day small{font-size:11px;font-weight:600}
+.day.no{background:#EEF1F6;border-color:#E3E9F3;color:#5B6474}
+.day.sel{background:#1F4FBF;border-color:#1F4FBF;color:#fff}
+.slots{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.slot{height:46px;border-radius:12px;font-size:15px;font-weight:700;border:1px solid #9FB6E6;background:#fff;color:#163C93;padding:0}
+.slot:disabled{background:#F1F3F7;border-color:#F1F3F7;color:#9AA3B2;cursor:default}
+.pie a{color:#1F4FBF;font-weight:600;text-decoration:none}
+.calb{display:inline-flex;align-items:center;text-decoration:none;background:#fff;color:#1F4FBF;border:1px solid #C9D4E6}
+.slot.sel{background:#1F4FBF;border-color:#1F4FBF;color:#fff}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #E3E9F3;padding-top:18px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+input,textarea{border:1px solid #C9D4E6;border-radius:12px;padding:0 14px;font-size:15px;color:#12224A;background:#fff}
+input{height:48px}textarea{padding:12px 14px;resize:vertical}
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.warn{display:flex;gap:12px;background:#FFF4E5;border:1px solid #F5C98A;border-radius:14px;padding:15px;font-size:15px;line-height:1.5;color:#5C3A00}
+.met{height:54px;border-radius:14px;font-size:17px;font-weight:700;text-align:left;padding:0 18px;border:1px solid #C9D4E6;background:#fff;color:#2B3A5C;width:100%}
+.met.on{border:2px solid #1F4FBF;background:#EAF1FF;color:#163C93}
+.wa{height:54px;padding:0 26px;border-radius:14px;background:#1A7F45;color:#fff;font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.err{background:#FFF6F6;border:1px solid #F2C4C4;color:#8A1C1C;border-radius:12px;padding:12px 14px;font-size:14px}
+.emer{margin-top:auto;background:#0E1F4D;color:#fff}
+.hidden{display:none!important}
+.rad{flex-direction:row;align-items:center;gap:10px;font-weight:500}.rad input{width:18px;height:18px;padding:0}
+.chk{flex-direction:row;align-items:flex-start;gap:10px;font-weight:500;line-height:1.5}.chk input{width:20px;height:20px;padding:0;margin-top:2px;flex-shrink:0}
+.legal{font-size:13px;line-height:1.6;color:#2B3A5C;background:#F5F8FD;border-radius:12px;padding:14px}
+select{height:48px;border:1px solid #C9D4E6;border-radius:12px;padding:0 10px;font-size:15px;color:#12224A;background:#fff;font-family:inherit}
+summary{cursor:pointer;font-weight:600;padding:8px 0}
+.scroll{max-height:210px;overflow:auto;border:1px solid #DCE3EF}
+.muted{color:#4A5878}
+.qrCel{display:none}
+@media(max-width:640px){
+ .wrap,.topin{padding-left:16px;padding-right:16px}
+ .topin{padding-top:10px;padding-bottom:10px}
+ .topCmp{display:none}
+ .topin{flex-wrap:nowrap}
+ .top{position:sticky;top:0;z-index:5}
+ .cards .card:nth-child(3){order:-1}
+ .foot .wa{justify-content:center;text-align:center;padding:0 16px;font-size:15px}
+ .topin .btn.sm{height:38px;padding:0 12px;font-size:14px;flex:none}
+ .side .card,.side{padding:14px 16px}
+ .side .kv:nth-of-type(1),.side .kv:nth-of-type(2){display:none}
+ .hero{padding:18px 0 16px;gap:18px}
+ .hero .pic{order:-1;flex:0 0 auto;width:150px;max-width:150px;aspect-ratio:1;border-radius:24px}
+ .hero h1{font-size:32px!important}
+ .hero .btn{width:100%}
+ .cards{padding:4px 0 22px;gap:14px}
+ .card{padding:16px;border-radius:18px}
+ .flow{padding:14px 0;gap:14px}
+ .side{max-width:none;flex-basis:100%}
+ .sideDoc{display:none!important}
+ .step h1{font-size:22px!important}
+ .days,.slots{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .day{height:72px}
+ .slot{height:48px}
+ input,select,textarea{font-size:16px}
+ .foot .btn,.foot .wa{width:100%;justify-content:center}
+ #s1 .foot,#s2 .foot{position:sticky;bottom:0;z-index:2;background:#fff;margin:0 -16px -16px;padding:12px 16px 14px;border-radius:0 0 18px 18px;box-shadow:0 -8px 18px rgba(14,31,77,.08)}
+ .met{height:48px}
+ .qrPc{display:none}.qrCel{display:inline}
+ .emer .wrap{padding-top:16px!important;padding-bottom:16px!important}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <button class="brand" onclick="ir('perfil')">
+    <span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.6A5 5 0 0 0 12 5.1a5 5 0 0 0-8.8 3.5c0 5 8.8 10.4 8.8 10.4s3.2-2 5.6-4.6"></path><path d="M3 12h4l2-3 3 6 2-3h3"></path></svg></span>
+    <span><b style="font-family:'Plus Jakarta Sans';font-size:17px;display:block">Dr. Esduardo Saavedra</b><span style="font-size:12px;color:#4A5878">Consulta médica virtual</span></span>
+  </button>
+  <div style="display:flex;align-items:center;gap:18px"><span class="topCmp" style="font-size:14px;color:#3A4A6B">CMP 096742</span><button id="btnTop" class="btn sm" onclick="ir('agenda')">Reservar cita</button></div>
+</div></div>
+
+<!-- PRESENTACIÓN -->
+<div id="vPerfil" class="wrap">
+  <div class="hero">
+    <div class="txt">
+      <span class="chip" style="align-self:flex-start;background:#EAF1FF;border-color:#EAF1FF;color:#163C93;border-radius:999px">Atención por videollamada en todo el Perú</span>
+      <h1 style="font-size:50px;line-height:1.05;font-weight:800">Dr. Esduardo<br>Saavedra Custodio</h1>
+      <div style="font-size:19px;color:#3A4A6B">Médico Cirujano · Medicina general</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span class="chip" style="color:#163C93">Colegio Médico del Perú · CMP 096742</span>
+        <span class="chip">Natural de Lambayeque</span>
+        <span class="chip">Egresado de la UPC</span>
+        <a class="chip" href="https://conoceatumedico.cmp.org.pe/" target="_blank" rel="noopener" title="Busca el CMP 096742 en «Conoce a tu médico»" style="color:#1F4FBF;text-decoration:none;font-weight:600">Verificar colegiatura ↗</a>
+      </div>
+      <p style="margin:0;max-width:600px;font-size:17px;line-height:1.6;color:#2B3A5C">Soy médico cirujano formado en la Universidad Peruana de Ciencias Aplicadas (UPC). Trabajo en telemedicina orientando a pacientes de todo el país, y ahora te atiendo directamente por videollamada, desde donde estés.</p>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <button class="btn" style="height:56px;font-size:17px" onclick="ir('agenda')">Atenderme con el Dr. Saavedra</button>
+        <div><div style="font-family:'Plus Jakarta Sans';font-size:24px;font-weight:800;color:#0E1F4D">S/ <span class="precio">30</span></div><div style="font-size:13px;color:#4A5878">Consulta virtual · Lunes a sábado</div></div>
+      </div>
+    </div>
+    <div class="pic" id="pic"></div>
+  </div>
+  <div class="cards">
+    <div class="card"><h2 style="font-size:18px;margin-bottom:16px">Experiencia</h2>
+      <div class="it"><b>Infosalud MINSA – Línea 113</b><span>Médico de teleorientación · 2025 – 2026</span></div>
+      <div class="it"><b>Municipalidad de San Isidro</b><span>Médico de teleorientación y urgencias · 2023 – 2026</span></div>
+      <div class="it"><b>Red de Salud Tayacaja – Huancavelica</b><span>Médico I · 2023 y 2025</span></div>
+      <div class="it"><b>Red de Salud Huancavelica</b><span>Médico general · 2025</span></div>
+      <div class="it"><b>C.S. Tintay Puncu – Tayacaja</b><span>Médico SERUMS · 2022 – 2023</span></div>
+    </div>
+    <div class="card"><h2 style="font-size:18px;margin-bottom:16px">Formación hospitalaria</h2>
+      <div class="it"><b>Instituto Nacional de Enfermedades Neoplásicas (INEN)</b><span>Internado médico</span></div>
+      <div class="it"><b>Hospital Nacional Daniel Alcides Carrión</b><span>Rotación</span></div>
+      <div class="it"><b>Hospital Nacional Dos de Mayo</b><span>Rotación</span></div>
+      <div class="it"><b>Hospital María Auxiliadora</b><span>Rotación</span></div>
+    </div>
+    <div class="card"><h2 style="font-size:18px;margin-bottom:16px">Cómo reservar</h2>
+      <div style="display:flex;gap:12px;margin-bottom:12px"><span class="num">1</span><div>Elige un horario disponible.</div></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px"><span class="num">2</span><div>Paga S/ <span class="precio">30</span> por Yape o Plin y envía tu comprobante por WhatsApp.</div></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px"><span class="num">3</span><div>Recibe la confirmación y el enlace de la videollamada.</div></div>
+      <div style="font-size:13px;color:#5B6474">Si el pago no llega hasta 2 horas antes de la cita, la reserva se cancela y el horario se libera.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:22px"><h2 style="font-size:18px;margin-bottom:14px">¿Qué puedo consultar por aquí?</h2>
+    <div class="f2">
+      <div style="background:#E3F5EA;border-radius:14px;padding:16px;color:#0F4D2A"><b>✅ Puedes consultar</b><p style="margin:8px 0 0;line-height:1.6;font-size:15px">Síntomas leves (resfrío, tos, dolor de garganta, malestar estomacal, alergias leves), control de enfermedades crónicas ya diagnosticadas (presión alta, diabetes, tiroides), revisión de resultados de análisis, dudas sobre tus medicamentos y orientación general de salud.</p></div>
+      <div style="background:#FDECEC;border-radius:14px;padding:16px;color:#7A1414"><b>🚫 Acude a emergencia (no reserves)</b><p style="margin:8px 0 0;line-height:1.6;font-size:15px">Dolor de pecho, dificultad para respirar, desmayo, convulsiones, sangrado abundante, golpes fuertes, dolor abdominal intenso o embarazo con signos de alarma. Llama al SAMU 106.</p></div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:22px"><h2 style="font-size:18px;margin-bottom:6px">Preguntas frecuentes</h2>
+    <details><summary>¿Me pueden dar receta?</summary><div class="legal">Sí. Si el médico lo indica, recibirás tu receta en PDF por WhatsApp o correo.</div></details><details><summary>¿Pueden pedirme exámenes?</summary><div class="legal">Sí. Las órdenes de laboratorio o imágenes se envían en PDF.</div></details><details><summary>¿Dan descanso médico o certificado?</summary><div class="legal">Sí, cuando el cuadro lo justifica. Recibirás el certificado médico (especie valorada del Colegio Médico) escaneado; si necesitas el original, podemos enviarlo a tu domicilio. El certificado y el envío tienen un costo adicional, no incluido en la consulta.</div></details><details><summary>¿Qué pasa si se corta la conexión?</summary><div class="legal">Seguimos por llamada de WhatsApp. Si no es posible completar la consulta por una falla técnica, la reprogramamos sin costo.</div></details><details><summary>¿Atienden niños?</summary><div class="legal">Sí, a todas las edades. Los menores de 18 años deben estar acompañados por su padre, madre o tutor durante toda la consulta.</div></details><details><summary>¿Necesito instalar algo?</summary><div class="legal">No. Google Meet se abre desde el navegador de tu computadora o desde su app en el celular.</div></details><details><summary>¿Cómo pago?</summary><div class="legal">Por Yape o Plin al 938 298 901, antes de la cita. En la pantalla de pago también puedes escanear el código QR de Plin.</div></details>
+  </div>
+  <div class="card" style="margin-bottom:40px"><h2 style="font-size:18px;margin-bottom:6px">Condiciones del servicio</h2>
+    <details id="dAviso"><summary>Aviso de privacidad</summary><div class="legal"><b>Aviso de privacidad.</b> <b>Responsable:</b> Dante Josué Esduardo Saavedra Custodio, médico cirujano (CMP 096742), RUC 10731820720, Lima, Perú. Contacto: esduardo.saavedrac@gmail.com.<br><b>Qué datos tratamos:</b> nombre, documento de identidad, fecha de nacimiento, celular, correo, motivo de consulta y, si corresponde, los datos de quien reserva. Los datos de salud son datos sensibles: solo los tratamos con tu consentimiento expreso.<br><b>Para qué:</b> gestionar tu cita y su pago, contactarte por WhatsApp o correo, enviarte recordatorios, brindarte la atención médica, registrar tu historia clínica y cumplir obligaciones legales. <b>No usamos tus datos para publicidad</b> ni los vendemos.<br><b>Dónde se guardan:</b> en servicios de Google (Google LLC); la videollamada usa Google Meet y la comunicación, WhatsApp (Meta). Sus servidores pueden estar fuera del Perú, por lo que al aceptar autorizas esta transferencia internacional. El acceso está restringido al médico y no se comparten con terceros, salvo obligación legal.<br><b>Cuánto tiempo:</b> los datos de la reserva se conservan 2 años desde la cita; luego se eliminan los datos de contacto, documento y motivo. La historia clínica se conserva el plazo que exige la normativa de salud.<br><b>Tus derechos:</b> puedes solicitar el acceso, rectificación, cancelación u oposición (derechos ARCO), o retirar tu consentimiento, escribiendo a esduardo.saavedrac@gmail.com. Si no estás conforme con la respuesta, puedes acudir a la Autoridad Nacional de Protección de Datos Personales.<br>Ley N.° 29733 y su Reglamento (D.S. N.° 016-2024-JUS).</div></details>
+    <details><summary>Cancelaciones, inasistencias y reembolsos</summary><div class="legal"><b>Condiciones del servicio.</b><ul style="margin:8px 0 0;padding-left:18px"><li><b>Pago y confirmación:</b> S/ <span class="precio">30</span> por consulta, pago previo por Yape o Plin. La cita se confirma al verificar el pago. Si no recibimos el pago hasta 2 horas antes, la reserva se cancela automáticamente.</li><li><b>Si cancelas:</b> con 24 horas o más de anticipación te devolvemos el 100 % del pago. Con menos de 24 horas no hay reembolso.</li><li><b>Si no te conectas:</b> esperamos 10 minutos desde la hora de tu cita; pasado ese tiempo la consulta se da por perdida, sin reembolso.</li><li><b>Si cancela el médico o hay una falla técnica de nuestra parte:</b> eliges entre reprogramar sin costo o el reembolso total.</li><li><b>Reembolsos:</b> por el mismo medio de pago (Yape o Plin), en un plazo máximo de 3 días hábiles.</li><li><b>Si necesitas cambiar tu cita:</b> puedes reprogramarla <b>una vez</b>, avisando con 24 horas o más de anticipación. Si la cancelación o el cambio es por parte del médico o por una falla técnica nuestra, no cuenta como tu reprogramación.</li><li><b>Para cancelar o reprogramar:</b> escríbenos por WhatsApp al 938 298 901.</li><li>Todos los horarios están en <b>hora de Perú</b> (GMT-5).</li></ul></div></details>
+    <details><summary>Consentimiento informado para teleconsulta</summary><div class="legal"><b>Consentimiento informado para teleconsulta.</b> Al reservar declaro que:<ol style="margin:8px 0 0;padding-left:18px"><li>Entiendo que la teleconsulta es una atención médica a distancia por videollamada (Google Meet), sin examen físico presencial; por ello el médico podría no llegar a un diagnóstico definitivo e indicarme una atención presencial, exámenes o acudir a emergencia.</li><li>La teleconsulta no es un servicio de emergencias. Si presento signos de alarma, acudiré a emergencia o llamaré al SAMU 106.</li><li>Brindaré información veraz y completa, y me identificaré con mi documento al inicio de la consulta.</li><li>La consulta no se graba, y me comprometo a no grabarla sin autorización del médico.</li><li>Me conectaré desde un lugar privado y con buena señal. Si la conexión falla, se intentará continuar por llamada de WhatsApp; si no es posible completar la consulta por causas técnicas, se reprogramará sin costo.</li><li>El médico podrá emitir receta, órdenes de exámenes, certificados o informes en formato digital (PDF), enviados por WhatsApp o correo.</li><li>La información de la consulta se registrará en mi historia clínica y se tratará con confidencialidad.</li><li>Si el paciente es menor de edad, declaro ser su padre, madre o tutor, y estaré presente durante toda la consulta.</li><li>Puedo rechazar la teleconsulta o retirar mi consentimiento en cualquier momento, antes o durante la atención.</li></ol></div></details>
+  </div>
+</div>
+
+<!-- RESERVA -->
+<div id="vFlow" class="wrap hidden">
+  <div class="flow">
+    <div class="card side">
+      <div class="sideDoc" style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+        <div id="picS" style="width:62px;height:62px;border-radius:16px;overflow:hidden;background:#DCE6F7;flex-shrink:0"></div>
+        <div><b>Dr. Esduardo Saavedra Custodio</b><div style="font-size:13px;color:#4A5878">Médico Cirujano · CMP 096742</div></div>
+      </div>
+      <div style="border-top:1px solid #E3E9F3;padding-top:8px">
+        <div class="kv"><span>Servicio</span><b>Consulta virtual</b></div>
+        <div class="kv"><span>Modalidad</span><b>Google Meet</b></div>
+        <div class="kv"><span>Fecha</span><b id="sF">—</b></div>
+        <div class="kv"><span>Hora</span><b id="sH">—</b></div>
+        <div class="kv" style="border-top:1px solid #E3E9F3;padding-top:10px;align-items:baseline"><span>Total</span><b style="font-family:'Plus Jakarta Sans';font-size:24px">S/ <span class="precio">30</span></b></div>
+      </div>
+      <div class="bar"><div id="b1"></div><div id="b2"></div><div id="b3"></div></div>
+      <div id="stLab" style="font-size:12px;color:#4A5878;font-weight:600;margin-top:6px"></div>
+    </div>
+
+    <div class="card step">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="ic" id="back" onclick="atras()" aria-label="Volver"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#12224A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+        <h1 id="stTit" style="font-size:26px;font-weight:800"></h1>
+      </div>
+
+      <div id="s1">
+        <div id="cargando" class="muted">Cargando horarios…</div>
+        <div id="agenda" class="hidden" style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <button class="ic" id="wPrev" onclick="semana(-1)" aria-label="Semana anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12224A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+            <b id="wLab" style="min-width:190px;text-align:center"></b>
+            <button class="ic" id="wNext" onclick="semana(1)" aria-label="Semana siguiente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12224A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+          </div>
+          <div class="days" id="days"></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><div><b id="dLab" style="font-size:17px"></b><div style="font-size:13px;color:#4A5878">Horarios en hora de Perú (GMT-5)</div></div>
+            <div style="display:flex;gap:16px;font-size:13px;color:#3A4A6B"><span>▢ Disponible</span><span style="color:#9AA3B2">■ No disponible</span></div></div>
+          <div class="slots" id="slots"></div>
+          <div class="foot"><div id="pick" class="muted">Selecciona un horario disponible</div><button class="btn" id="go2" disabled onclick="ir('datos')">Continuar</button></div>
+        </div>
+      </div>
+
+      <div id="s2" class="hidden" style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:14px;font-weight:700;color:#3A4A6B">Datos del paciente</div>
+        <div class="f2">
+          <label>Nombre y apellidos del paciente<input id="iNom" placeholder="Ej. María López Torres" oninput="val()"></label>
+          <label>Fecha de nacimiento<input id="iNac" type="date" oninput="val()" onchange="val()"></label>
+        </div>
+        <div class="f2">
+          <label>Tipo de documento<select id="iDocT" onchange="val()"><option value="DNI">DNI</option><option value="CE">Carné de extranjería</option><option value="Pasaporte">Pasaporte</option></select></label>
+          <label>Número de documento<input id="iDoc" placeholder="Ej. 12345678" oninput="val()"></label>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:14px;font-weight:600">¿Quién hace la reserva?</div>
+          <label class="rad"><input type="radio" name="quien" id="qYo" checked onchange="val()">Soy el paciente</label>
+          <label class="rad"><input type="radio" name="quien" id="qOtro" onchange="val()">Soy padre, madre, tutor o familiar del paciente</label>
+        </div>
+        <div id="bResp" class="f2 hidden">
+          <label>Tu nombre y apellidos<input id="iResp" placeholder="Nombre de quien reserva" oninput="val()"></label>
+          <label>Parentesco con el paciente<select id="iPar" onchange="val()"><option value="">Elige…</option><option>Madre</option><option>Padre</option><option>Tutor legal</option><option>Hijo/a</option><option>Cónyuge</option><option>Otro familiar</option></select></label>
+        </div>
+        <div id="avMenor" class="warn hidden" style="font-size:14px"><span>ℹ</span><div>El paciente es menor de edad: la reserva debe hacerla su padre, madre o tutor, quien debe estar presente durante toda la consulta.</div></div>
+        <div style="font-size:14px;font-weight:700;color:#3A4A6B">Datos de contacto <span style="font-weight:500;color:#5B6474">(de quien reserva)</span></div>
+        <div class="f2">
+          <label>Celular con WhatsApp<div style="display:flex;gap:6px"><select id="iPais" onchange="paisC()" style="width:118px;flex:none" aria-label="Código de país"><option value="51">🇵🇪 +51</option><option value="34">🇪🇸 +34</option><option value="56">🇨🇱 +56</option><option value="54">🇦🇷 +54</option><option value="1">🇺🇸 +1</option><option value="39">🇮🇹 +39</option><option value="otro">Otro</option></select><input id="iCod" class="hidden" inputmode="numeric" placeholder="+ cód." maxlength="5" style="width:72px;flex:none" oninput="val()" aria-label="Código de país"><input id="iTel" inputmode="tel" placeholder="9XX XXX XXX" oninput="val()" style="flex:1;min-width:0"></div></label>
+          <label>Correo electrónico<input id="iMail" type="email" placeholder="tucorreo@gmail.com" oninput="val()"></label>
+        </div>
+        <label>Motivo de consulta (opcional)<textarea id="iMot" rows="4" placeholder="Cuéntame brevemente qué te pasa"></textarea></label>
+        <input id="iWeb" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <div style="font-size:14px;font-weight:700;color:#3A4A6B">Consentimiento informado y condiciones <span style="font-weight:500;color:#5B6474">(léelos antes de reservar)</span></div>
+        <div class="legal" style="background:#EAF1FF"><b>En resumen:</b><ul style="margin:6px 0 0;padding-left:18px;line-height:1.7"><li>Es una consulta por videollamada, sin examen físico. Si hace falta, te indicaré atención presencial.</li><li>No atiende emergencias: ante signos de alarma, llama al SAMU 106.</li><li>Si cancelas con 24 h o más, te devolvemos el total. Con menos de 24 h, o si no te conectas en 10 min, no hay devolución.</li><li>Puedes reprogramar una vez avisando con 24 h.</li></ul></div>
+        <details id="dLeg"><summary>Leer consentimiento y condiciones completos</summary>
+        <div id="txCons" class="legal scroll"><b>Consentimiento informado para teleconsulta.</b> Al reservar declaro que:<ol style="margin:8px 0 0;padding-left:18px"><li>Entiendo que la teleconsulta es una atención médica a distancia por videollamada (Google Meet), sin examen físico presencial; por ello el médico podría no llegar a un diagnóstico definitivo e indicarme una atención presencial, exámenes o acudir a emergencia.</li><li>La teleconsulta no es un servicio de emergencias. Si presento signos de alarma, acudiré a emergencia o llamaré al SAMU 106.</li><li>Brindaré información veraz y completa, y me identificaré con mi documento al inicio de la consulta.</li><li>La consulta no se graba, y me comprometo a no grabarla sin autorización del médico.</li><li>Me conectaré desde un lugar privado y con buena señal. Si la conexión falla, se intentará continuar por llamada de WhatsApp; si no es posible completar la consulta por causas técnicas, se reprogramará sin costo.</li><li>El médico podrá emitir receta, órdenes de exámenes, certificados o informes en formato digital (PDF), enviados por WhatsApp o correo.</li><li>La información de la consulta se registrará en mi historia clínica y se tratará con confidencialidad.</li><li>Si el paciente es menor de edad, declaro ser su padre, madre o tutor, y estaré presente durante toda la consulta.</li><li>Puedo rechazar la teleconsulta o retirar mi consentimiento en cualquier momento, antes o durante la atención.</li></ol></div>
+        
+        <div id="txCond" class="legal scroll"><b>Condiciones del servicio.</b><ul style="margin:8px 0 0;padding-left:18px"><li><b>Pago y confirmación:</b> S/ <span class="precio">30</span> por consulta, pago previo por Yape o Plin. La cita se confirma al verificar el pago. Si no recibimos el pago hasta 2 horas antes, la reserva se cancela automáticamente.</li><li><b>Si cancelas:</b> con 24 horas o más de anticipación te devolvemos el 100 % del pago. Con menos de 24 horas no hay reembolso.</li><li><b>Si no te conectas:</b> esperamos 10 minutos desde la hora de tu cita; pasado ese tiempo la consulta se da por perdida, sin reembolso.</li><li><b>Si cancela el médico o hay una falla técnica de nuestra parte:</b> eliges entre reprogramar sin costo o el reembolso total.</li><li><b>Reembolsos:</b> por el mismo medio de pago (Yape o Plin), en un plazo máximo de 3 días hábiles.</li><li><b>Si necesitas cambiar tu cita:</b> puedes reprogramarla <b>una vez</b>, avisando con 24 horas o más de anticipación. Si la cancelación o el cambio es por parte del médico o por una falla técnica nuestra, no cuenta como tu reprogramación.</li><li><b>Para cancelar o reprogramar:</b> escríbenos por WhatsApp al 938 298 901.</li><li>Todos los horarios están en <b>hora de Perú</b> (GMT-5).</li></ul></div>
+        </details>
+        <label class="chk"><input type="checkbox" id="iTele" onchange="val()"><span><b>He leído y acepto</b> el consentimiento informado para teleconsulta y las condiciones del servicio (cancelaciones y reembolsos).</span></label>
+        <label class="chk"><input type="checkbox" id="iOk" onchange="val()"><span>Acepto el tratamiento de mis datos personales y de salud para gestionar mi cita, según el <a href="#" onclick="tog('aviso');return false;">aviso de privacidad</a>.</span></label>
+        <div id="aviso" class="legal hidden"><b>Aviso de privacidad.</b> <b>Responsable:</b> Dante Josué Esduardo Saavedra Custodio, médico cirujano (CMP 096742), RUC 10731820720, Lima, Perú. Contacto: esduardo.saavedrac@gmail.com.<br><b>Qué datos tratamos:</b> nombre, documento de identidad, fecha de nacimiento, celular, correo, motivo de consulta y, si corresponde, los datos de quien reserva. Los datos de salud son datos sensibles: solo los tratamos con tu consentimiento expreso.<br><b>Para qué:</b> gestionar tu cita y su pago, contactarte por WhatsApp o correo, enviarte recordatorios, brindarte la atención médica, registrar tu historia clínica y cumplir obligaciones legales. <b>No usamos tus datos para publicidad</b> ni los vendemos.<br><b>Dónde se guardan:</b> en servicios de Google (Google LLC); la videollamada usa Google Meet y la comunicación, WhatsApp (Meta). Sus servidores pueden estar fuera del Perú, por lo que al aceptar autorizas esta transferencia internacional. El acceso está restringido al médico y no se comparten con terceros, salvo obligación legal.<br><b>Cuánto tiempo:</b> los datos de la reserva se conservan 2 años desde la cita; luego se eliminan los datos de contacto, documento y motivo. La historia clínica se conserva el plazo que exige la normativa de salud.<br><b>Tus derechos:</b> puedes solicitar el acceso, rectificación, cancelación u oposición (derechos ARCO), o retirar tu consentimiento, escribiendo a esduardo.saavedrac@gmail.com. Si no estás conforme con la respuesta, puedes acudir a la Autoridad Nacional de Protección de Datos Personales.<br>Ley N.° 29733 y su Reglamento (D.S. N.° 016-2024-JUS).</div>
+        <div style="font-size:13px;color:#5B6474">Usaremos tus datos solo para gestionar tu cita: te contactaremos por WhatsApp y te enviaremos un recordatorio por correo.</div>
+        <div id="e2" class="err hidden"></div>
+        <div class="foot"><span></span><button class="btn" id="go3" disabled onclick="reservar()">Reservar y pagar</button></div>
+      </div>
+
+      <div id="s3" class="hidden" style="display:flex;flex-direction:column;gap:18px">
+        <div class="warn">⏱<div>Tu horario está separado. Envía tu comprobante <b>hasta las <span id="lim"></span></b>. Si no recibimos el pago 2 horas antes de la cita, se cancela automáticamente.<div id="cuenta" style="font-weight:700;margin-top:4px"></div></div></div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px">
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-size:14px;font-weight:600;color:#3A4A6B">Método de pago</div>
+            <button class="met on" id="mY" onclick="metodo('Yape')">Yape</button>
+            <button class="met" id="mP" onclick="metodo('Plin')">Plin</button>
+          </div>
+          <div style="flex:2 1 300px;background:#F5F8FD;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div>Paga <b>S/ <span class="precio">30</span>.00</b> con <b class="mN">Yape</b> a este número:</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+              <div><div id="numP" style="font-family:'Plus Jakarta Sans';font-size:32px;font-weight:800"></div><div class="muted" style="font-size:14px">Titular: <span id="tit"></span></div></div>
+              <button class="btn sm" style="background:#fff;color:#1F4FBF;border:1px solid #C9D4E6" onclick="copiar()" id="cp">Copiar número</button>
+            </div>
+            <div id="qrBox" style="display:none;gap:14px;align-items:center;background:#fff;border-radius:12px;padding:12px;flex-wrap:wrap"><img id="qrImg" alt="Código QR de Plin" width="132" height="130" style="image-rendering:pixelated;flex:none"><div style="flex:1 1 180px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;font-size:14px;color:#2B3A5C"><span class="qrPc">O escanea este código QR desde tu app de Plin o de tu banco.</span><span class="qrCel">Desde el celular: guarda la imagen del QR y súbela en tu app de Plin o de tu banco (Pagar con QR → elegir de la galería).</span><a class="btn sm calb" id="qrSave" target="_blank" rel="noopener">Guardar imagen del QR</a></div></div>
+            <ol style="margin:0;padding-left:20px;line-height:1.8;font-size:14px;color:#2B3A5C">
+              <li>Abre <span class="mN">Yape</span> en tu celular y paga S/ <span class="precio">30</span>.00 al número de arriba.</li>
+              <li>Toma captura del comprobante.</li>
+              <li>Envíala por WhatsApp con el botón verde.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="foot"><span></span><a class="wa" id="waBtn" target="_blank" onclick="setTimeout(function(){ir('ok')},400)">Enviar comprobante por WhatsApp</a></div>
+      </div>
+
+      <div id="s4" class="hidden" style="display:flex;flex-direction:column;gap:18px">
+        <div style="font-size:16px;color:#3A4A6B">✅ Tu reserva quedó registrada a nombre de <b id="okN"></b> y está pendiente de confirmación de pago.</div>
+        <div class="f2">
+          <div style="background:#F5F8FD;border-radius:14px;padding:16px"><span class="num">1</span><p>Verificamos tu pago y te confirmamos por WhatsApp.</p></div>
+          <div style="background:#F5F8FD;border-radius:14px;padding:16px"><span class="num">2</span><p>Te enviamos el enlace de Google Meet y un recordatorio por correo el día anterior.</p></div>
+          <div style="background:#FFF4E5;border-radius:14px;padding:16px;color:#5C3A00"><span class="num" style="background:#F5C98A;color:#5C3A00">!</span><p>Sin pago hasta las <b id="okL"></b>, la cita se cancela y el horario se libera.</p></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span style="font-size:14px;font-weight:600;color:#3A4A6B">Agregar a mi calendario:</span><a class="btn sm calb" id="calG" target="_blank" rel="noopener">Google Calendar</a><a class="btn sm calb" id="calA" target="_blank" rel="noopener">Apple / Outlook</a></div>
+        <div class="muted" style="font-size:13px;margin-top:-8px">El enlace de la videollamada te llegará por WhatsApp al confirmar tu pago.</div>
+        <div class="foot"><span></span><button class="btn" style="background:#fff;color:#1F4FBF;border:1px solid #C9D4E6" onclick="reiniciar()">Volver al inicio</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pie" style="background:#fff;border-top:1px solid #E3E9F3"><div class="wrap" style="padding-top:18px;padding-bottom:18px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;font-size:13px;color:#4A5878"><div><b style="color:#12224A">Dante Josué Esduardo Saavedra Custodio</b> · Médico Cirujano · CMP 096742 · RUC 10731820720 · Lima, Perú · <a href="mailto:esduardo.saavedrac@gmail.com">esduardo.saavedrac@gmail.com</a></div><div style="display:flex;gap:16px;flex-wrap:wrap"><a href="https://conoceatumedico.cmp.org.pe/" target="_blank" rel="noopener">Verificar colegiatura en el CMP ↗</a><a href="#" onclick="verAviso();return false;">Aviso de privacidad</a></div></div></div>
+<div class="emer"><div class="wrap" style="padding-top:22px;padding-bottom:22px;display:flex;gap:14px;align-items:flex-start">
+  <span style="font-size:20px">⚠</span>
+  <div><b>Este servicio no atiende emergencias</b><div style="font-size:14px;line-height:1.55;color:#D5DEF2;margin-top:4px">Si tienes una emergencia llama al <b style="color:#fff">SAMU 106</b>, a la <b style="color:#fff">Línea 107 de EsSalud</b> (orientación gratuita 24 h) o acude a la emergencia de tu clínica u hospital de confianza más cercano.</div></div>
+</div></div>
+
+<script>
+/* Conexión con el sistema de reservas (Google Apps Script) */
+var API='https://script.google.com/macros/s/AKfycbwtSFqa1upsXre9HG8zdrivUOQD9srQjgLhJPdSw7Plb06pE3E1CBurW1zmyrW9IR7K/exec';
+function llamar_(fn,arg,ok,mal){
+  var ctl=('AbortController' in window)?new AbortController():null,t=setTimeout(function(){if(ctl)ctl.abort();},45000);
+  fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:fn,arg:arg}),redirect:'follow',signal:ctl?ctl.signal:undefined})
+   .then(function(r){return r.json();})
+   .then(function(j){clearTimeout(t);if(j&&j.ok){if(ok)ok(j.r);}else if(mal)mal({message:(j&&j.error)||'No se pudo completar la solicitud.'});})
+   .catch(function(){clearTimeout(t);if(mal)mal({message:'No hay conexión con el sistema de reservas.'});});
+}
+function corredor_(ok,mal){return{withSuccessHandler:function(f){return corredor_(f,mal);},withFailureHandler:function(f){return corredor_(ok,f);},
+  getData:function(){llamar_('data',null,ok,mal);},reservar:function(x){llamar_('reservar',x,ok,mal);}};}
+var google={script:{run:corredor_(null,null)}};
+</script>
+<script>
+var D=null, S={pant:'perfil',sem:0,dia:null,hora:null,metodo:'Yape',res:null};
+var DOW=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DOWL=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+var MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function $(i){return document.getElementById(i);}
+function fd(f){var p=f.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function fLarga(f){var d=fd(f);return DOWL[d.getDay()]+' '+d.getDate()+' de '+MES[d.getMonth()];}
+function semanas(){var W=[],cur=null;D.dias.forEach(function(d){if(!cur||d.dow===1&&cur.length){cur=[];W.push(cur);}cur.push(d);});return W;}
+function cargar(){google.script.run.withSuccessHandler(function(d){D=d;
+  document.querySelectorAll('.precio').forEach(function(e){e.textContent=d.precio;});
+  $('numP').textContent=d.numero;$('tit').textContent=d.titular;
+  if(d.foto){var im='<img src="../foto.jpg" alt="Foto del Dr. Esduardo Saavedra Custodio" style="width:100%;height:100%;object-fit:cover;object-position:center 15%">';$('pic').innerHTML=im;$('picS').innerHTML=im;}
+  if(S.dia===null){var W=semanas();outer:for(var w=0;w<W.length;w++)for(var i=0;i<W[w].length;i++)if(W[w][i].slots.some(function(s){return s.l;})){S.sem=w;S.dia=W[w][i].f;break outer;}}
+  $('cargando').classList.add('hidden');$('agenda').classList.remove('hidden');pintar();
+}).withFailureHandler(function(e){$('cargando').innerHTML='No se pudieron cargar los horarios. Recarga la página o reserva por WhatsApp: <a href="https://wa.me/51938298901" target="_blank">938 298 901</a>.';}).getData();}
+function pintar(){
+  var tit={agenda:'Elige tu horario',datos:'Tus datos',pago:'Pago de la consulta',ok:'Reserva registrada'};
+  var n={agenda:1,datos:2,pago:3,ok:3}[S.pant]||0;
+  $('vPerfil').classList.toggle('hidden',S.pant!=='perfil');$('vFlow').classList.toggle('hidden',S.pant==='perfil');
+  $('btnTop').classList.toggle('hidden',S.pant!=='perfil');
+  ['s1','s2','s3','s4'].forEach(function(s,i){$(s).classList.toggle('hidden',['agenda','datos','pago','ok'][i]!==S.pant);});
+  $('stTit').textContent=tit[S.pant]||'';$('back').classList.toggle('hidden',S.pant==='ok'||S.pant==='pago');
+  ['b1','b2','b3'].forEach(function(b,i){$(b).classList.toggle('on',n>i);});
+  $('stLab').textContent=S.pant==='ok'?'Pendiente de pago':(n?'Paso '+n+' de 3':'');
+  $('sF').textContent=S.hora?fLarga(S.dia):'—';$('sH').textContent=S.hora?S.hora+' h (Perú)':'—';
+  if(!D)return;
+  var W=semanas(),w=W[S.sem]||[];
+  $('wPrev').disabled=S.sem===0;$('wNext').disabled=S.sem>=W.length-1;
+  if(w.length){var a=fd(w[0].f),b=fd(w[w.length-1].f);$('wLab').textContent=a.getDate()+(a.getMonth()!==b.getMonth()?' de '+MES[a.getMonth()]:'')+' – '+b.getDate()+' de '+MES[b.getMonth()];}
+  if(!w.some(function(d){return d.f===S.dia;})&&w.length){var c=w.filter(function(d){return d.slots.some(function(s){return s.l;});})[0]||w[0];S.dia=c.f;}
+  $('days').innerHTML=w.map(function(d){var ok=d.slots.some(function(s){return s.l;});var dd=fd(d.f);
+    return '<button class="day'+(d.f===S.dia?' sel':(ok?'':' no'))+'" onclick="S.dia=\''+d.f+'\';S.hora=null;pintar()"><small>'+DOW[dd.getDay()]+'</small><b>'+dd.getDate()+'</b><small>'+(ok?'Con horarios':'No disponible')+'</small></button>';}).join('');
+  var dia=w.filter(function(d){return d.f===S.dia;})[0];
+  $('dLab').textContent=dia?fLarga(dia.f):'';
+  $('slots').innerHTML=dia?dia.slots.map(function(s){return '<button class="slot'+(S.hora===s.h&&S.dia===dia.f?' sel':'')+'" '+(s.l?'':'disabled ')+'aria-label="'+s.h+(s.l?' disponible':' no disponible')+'" onclick="S.hora=\''+s.h+'\';pintar()">'+s.h+'</button>';}).join(''):'';
+  $('pick').textContent=S.hora?'Elegiste: '+fLarga(S.dia)+', '+S.hora+' h (hora de Perú)':'Selecciona un horario disponible';
+  $('go2').disabled=!S.hora;
+}
+function ir(p){if(p==='datos'&&!S.hora)return;S.pant=p;pintar();window.scrollTo(0,0);if(p==='datos')val();if(p==='pago')cuenta();}
+function atras(){ir({agenda:'perfil',datos:'agenda'}[S.pant]||'perfil');}
+function semana(k){S.sem+=k;S.dia=null;S.hora=null;var W=semanas();var w=W[S.sem]||[];var c=w.filter(function(d){return d.slots.some(function(s){return s.l;});})[0]||w[0];if(c)S.dia=c.f;pintar();}
+function tog(id){$(id).classList.toggle('hidden');}
+function edadDe(v){if(!/^\d{4}-\d{2}-\d{2}$/.test(v))return null;var p=v.split('-').map(Number),t=new Date(),e=t.getFullYear()-p[0];if(t.getMonth()+1<p[1]||(t.getMonth()+1===p[1]&&t.getDate()<p[2]))e--;return(e<0||e>120)?null:e;}
+function docOk(){var t=$('iDocT').value,n=$('iDoc').value.toUpperCase().replace(/[^0-9A-Z]/g,'');return t==='DNI'?/^\d{8}$/.test(n):/^[0-9A-Z]{6,15}$/.test(n);}
+var LARGO={'51':[9,9],'34':[9,9],'56':[9,9],'54':[10,11],'1':[10,10],'39':[9,10]};
+function codPais(){return $('iPais').value==='otro'?$('iCod').value.replace(/\D/g,'').slice(0,4):$('iPais').value;}
+function paisC(){var o=$('iPais').value==='otro';$('iCod').classList.toggle('hidden',!o);$('iTel').placeholder=$('iPais').value==='51'?'9XX XXX XXX':'Número sin código';val();}
+function telOk(){var c=codPais(),n=$('iTel').value.replace(/\D/g,''),lg=LARGO[c]||[6,12];return !!c&&n.length>=lg[0]&&n.length<=lg[1]&&(c!=='51'||n[0]==='9');}
+function val(){var e=edadDe($('iNac').value),otro=$('qOtro').checked,menor=e!==null&&e<18;
+  $('bResp').classList.toggle('hidden',!otro);$('avMenor').classList.toggle('hidden',!menor);
+  var ok=$('iNom').value.trim().length>2&&e!==null&&!(menor&&!otro)&&docOk()&&(!otro||($('iResp').value.trim().length>2&&!!$('iPar').value))&&telOk()&&!/^[=+\-@]/.test($('iMail').value.trim())&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('iMail').value.trim())&&$('iTele').checked&&$('iOk').checked;
+  $('go3').disabled=!ok;return ok;}
+function reservar(){if(!val())return;$('go3').disabled=true;$('go3').textContent='Reservando…';$('e2').classList.add('hidden');
+  google.script.run.withSuccessHandler(function(r){S.res=r;$('go3').textContent='Reservar y pagar';$('lim').textContent=r.limite+' h (hora de Perú) del '+fLarga(S.dia).toLowerCase();$('okL').textContent=$('lim').textContent;$('okN').textContent=$('iNom').value.trim();metodo(S.metodo);calendario();ir('pago');})
+  .withFailureHandler(function(e){$('go3').textContent='Reservar y pagar';$('go3').disabled=false;$('e2').textContent=(e.message||'No se pudo reservar.')+' Si el problema continúa, escríbenos por WhatsApp al 938 298 901.';$('e2').classList.remove('hidden');S.hora=null;S.dia=null;cargar();})
+  .reservar({fecha:S.dia,hora:S.hora,nombre:$('iNom').value,docTipo:$('iDocT').value,docNum:$('iDoc').value,nacimiento:$('iNac').value,esOtro:$('qOtro').checked,responsable:$('iResp').value,parentesco:$('iPar').value,tel:$('iTel').value,pais:codPais(),email:$('iMail').value,motivo:$('iMot').value,metodo:S.metodo,acepta:$('iOk').checked,aceptaTele:$('iTele').checked,web:$('iWeb').value});}
+function verAviso(){ir('perfil');var d=$('dAviso');d.open=true;setTimeout(function(){d.scrollIntoView({behavior:'smooth'});},60);}
+function calendario(){var ini=new Date(S.dia+'T'+S.hora+':00-05:00'),fin=new Date(ini.getTime()+1800000);function z(d){return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');}
+  $('calG').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Consulta virtual – Dr. Esduardo Saavedra')+'&dates='+z(ini)+'/'+z(fin)+'&details='+encodeURIComponent('Consulta médica por videollamada (Google Meet). El enlace te llegará por WhatsApp al confirmar tu pago. Hora de Perú.');
+  var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Consultorio Dr. Saavedra//ES','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+Date.now()+'@consultorio-saavedra','DTSTAMP:'+z(new Date()),'DTSTART:'+z(ini),'DTEND:'+z(fin),'SUMMARY:Consulta virtual – Dr. Esduardo Saavedra','DESCRIPTION:Consulta médica por videollamada (Google Meet). El enlace te llegará por WhatsApp al confirmar tu pago.','BEGIN:VALARM','TRIGGER:-PT30M','ACTION:DISPLAY','DESCRIPTION:Consulta virtual en 30 minutos','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  $('calA').href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);$('calA').setAttribute('download','consulta.ics');$('calA').removeAttribute('target');}
+function cuenta(){var c=$('cuenta');if(!c||S.pant!=='pago'||!S.dia||!S.hora)return;var ms=new Date(S.dia+'T'+S.hora+':00-05:00').getTime()-7200000-Date.now();
+  if(ms<=0){c.textContent='El plazo de pago venció.';return;}var m=Math.floor(ms/60000),h=Math.floor(m/60);m=m%60;c.textContent='Te quedan '+(h?h+' h ':'')+m+' min para enviar tu pago.';}
+setInterval(cuenta,30000);
+function metodo(m){S.metodo=m;var hayQR=!!(D&&D.qr);if(hayQR){$('qrImg').src='data:image/png;base64,'+D.qr;$('qrSave').href='qr.html';}$('qrBox').style.display=(m==='Plin'&&hayQR)?'flex':'none';$('mY').classList.toggle('on',m==='Yape');$('mP').classList.toggle('on',m==='Plin');document.querySelectorAll('.mN').forEach(function(e){e.textContent=m;});
+  var t='Hola Dr. Saavedra, envío mi comprobante de pago ('+m+', S/ '+(D?D.precio:'30')+'). Paciente: '+$('iNom').value.trim()+'. Cita: '+fLarga(S.dia||'2026-01-01')+', '+S.hora+' h (hora de Perú).';
+  $('waBtn').href='https://wa.me/'+(D?D.whatsapp:'')+'?text='+encodeURIComponent(t);}
+function copiar(){try{navigator.clipboard.writeText(String(D.numero).replace(/\s/g,''));}catch(e){}$('cp').textContent='Copiado';}
+function reiniciar(){S={pant:'perfil',sem:0,dia:null,hora:null,metodo:'Yape',res:null};['iNom','iTel','iMail','iMot','iNac','iDoc','iResp','iPar'].forEach(function(i){$(i).value='';});$('iDocT').value='DNI';$('iPais').value='51';$('iCod').value='';paisC();$('qYo').checked=true;$('iOk').checked=false;$('iTele').checked=false;$('cp').textContent='Copiar número';cargar();pintar();}
+cargar();pintar();
+</script>
+</body>
+</html>
